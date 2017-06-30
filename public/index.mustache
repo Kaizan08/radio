@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SoundCloud Music Search</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Snyder's Smooth Sounds</h1>
+    </header>
+    <section class="player">
+      <audio class="music-player" controls="controls" src=""></audio>
+    </section>
+    <section class="search">
+      <form class="search-form" onsubmit="return sendData();">
+        <input type="text" placeholder="Search for Artist" name="search_input" id="search_input" class="search_input">
+        <input type="submit" id="submit" value="Search">
+      </form>
+    </section>
+    <section class="results"></section>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>

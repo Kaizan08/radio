@@ -1,0 +1,53 @@
+body {
+  background-color: #60d9f1;
+}
+header{
+    text-align: center;
+    font-size: 36px;
+}
+.player{
+    margin: 3% 5%;
+    padding: 1% 2% 4% 2%;
+    border-bottom: solid 1px gray;
+}
+.music-player{
+  width: 100%;
+}
+.search{
+    margin: 3% 5%;
+    padding: 1% 2% 4% 2%;
+    border-bottom: solid 1px gray;
+}
+.search-form{
+  display: flex;
+}
+#submit{
+  margin: 0 0 0 2%;
+  width: 22%;
+  height: 5vh;
+  border-width: 1px;
+}
+.bottomresults{
+    display: flex;
+    flex-wrap: wrap;
+    text-align:center;
+}
+.music_prof{
+  width: calc(100%/5);
+}
+.music_prof img{
+  width: 80%;
+  border-radius: 50%;
+}
+.results{
+  margin: 3% 5%;
+}
+.results h2{
+  font-weight: bold;
+  padding-left: 5px;
+}
+.search_input{
+  width: 100%;
+  height: 4vh;
+  padding-left: 10px;
+}
