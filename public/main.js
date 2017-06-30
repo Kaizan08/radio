@@ -24,6 +24,9 @@ function sendData() {
   });
   return false;
 }
+function addtodb(obj){
+  console.log(obj);
+}
 
 function getTracks(userId){
   var trackurl = "http://api.soundcloud.com/users/";
@@ -71,8 +74,12 @@ function buildprofile(data, parent){
     band.textContent = data["username"];
   }
   var favorite = document.createElement("input");
-  // favorite.href = '/favorite';
-  
+  favorite.value = 'Add to favorites';
+  favorite.type = 'button';
+  favorite.onclick = function() { addtodb(data); };
+  favorite.classList = "fav_btn";
   musicdiv.appendChild(band);
+  musicdiv.appendChild(favorite);
 }
 // 5. Create a way to listen for a click that will play the song in the audio play
+
