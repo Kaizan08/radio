@@ -87,3 +87,7 @@ header{
     text-align: center;
     font-size: 64px;
 }
+.selectedmusic{
+  margin: 15px 0px 0px;
+  font-size: 20px;
+}
