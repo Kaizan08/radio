@@ -34,6 +34,7 @@ header{
 }
 .music_prof{
   width: calc(100%/5);
+  margin-bottom: 20px;
 }
 .music_prof img{
   width: 80%;
@@ -50,4 +51,39 @@ header{
   width: 100%;
   height: 4vh;
   padding-left: 10px;
+}
+.main_data_fav{
+    display: flex;
+    width: 90%;
+    margin: 0px 5% 0px 5%;
+    flex-wrap: wrap;
+}
+.top_row{
+    display: flex;
+    justify-content: space-between;
+}
+.music_list{
+  width: 100%;
+  display: inline-block;
+  margin: 10px 0;
+  padding: 0px 10px;
+  box-shadow: 1px 2px;
+}
+.main_data_fav div:nth-child(even) {background: #CCC}
+.main_data_fav div:nth-child(odd) {background: #FFF}
+
+.nav{
+    width: 90%;
+    margin: 20px 5%;
+    display:flex;
+}
+.nav a{
+    width: calc(90%/4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fav_header{
+    text-align: center;
+    font-size: 64px;
 }

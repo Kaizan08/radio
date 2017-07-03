@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1 class="fav_header">Favorites</h1>
+        <div class="nav">
+            <a href="/">Back to Search</a>
+            <audio class="music-player" controls="controls" src=""></audio>
+        </div>
+        <div class="main_data_fav">
+            {{#songs}}
+                <div class="music_list">
+                    <span class="top_row">
+                        <p>Title: <a href="playsong({{stream_url}}); return false;">{{title}}</a></p>
+                        <p>Genre: {{genre}}</p>
+                        <p>User: {{user}}</p>
+                    </span>
+                    <span class="desc">
+                        <p>Description: {{description}}</p>
+                    </span>
+                </div>
+            {{/songs}}
+            {{^songs}}
+                <p>You haven't added any songs at this time. <br>
+                <a href="/">Return to search page</a> 
+            {{/songs}}
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>
+

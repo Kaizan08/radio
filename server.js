@@ -20,44 +20,32 @@ app.get("/", function(req, res){
   res.render('index');
 });
 
-// app.post("/", )
+app.get("/favorites", function(req, res){
+  models.songs.findAll().then(function(foundSongs){
+    res.render("favorites", {songs:foundSongs});
+  }).catch(function(err){
+    res.status(500).send(err);
+  })
+})
 
-// app.get("/users", function(req, res){
-//   models.users.findAll().then(function(foundUsers){
-//     res.send(foundUsers);
-//   }).catch(function(err){
-//     res.status(500).send(err);
-//   })
-// })
 
-// app.get("/users/:id", function(req, res){
-//   models.users.findById(req.params.id).then(function(foundUser){
-//     res.send(foundUser);
-//   }).catch(function(err){
-//     res.status(500).send(err);
-//   })
-// })
 
-// app.post("/users", function(req, res){
-// var userData = req.body;
-// var newUser = models.users.build(userData);
-
-// newUser.save().then(function(savedUser){
-//   res.send(savedUser);
-// }).catch(function(err){
-//   res.status(500).send(err);
-// });
-// });
-
-// app.delete("/users/:id", function(req, res){
-//   models.users.destroy({ where: {id: req.params.id } }).then(
-//     function(){
-//       res.send("Deleted user");
-//     }
-//   ).catch(function(err){
-//   res.status(500).send(err);
-// });
-// })
+app.post("/favsongs", function(req, res){
+  var songobj = {songid: req.body.id, 
+              genre: req.body.genre,
+              title: req.body.title,
+              description: req.body.description,
+              avatar_url: req.body.user.avatar_url,
+              stream_url: req.body.stream_url,
+              user: req.body.user.username  
+              }
+  models.songs.build(songobj)
+  .save().then(function(savedsong){
+    res.redirect("/");
+  }).catch(function(err){
+    res.status(500).send(err);
+  });
+})
 
 app.listen(8000, () => {
   console.log(`Server listening on port ${port}.`);

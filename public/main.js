@@ -10,6 +10,7 @@ var search = document.querySelector(".search_input");
 var search_form = document.querySelector(".search_form");
 var results = document.querySelector(".results");
 var submit = document.querySelector("#submit");
+var selectedmusic = document.querySelector(".selectedmusic");
 // 2. Create your `onSubmit` event for getting the user's search term
 
 var client_id = "?client_id=8538a1744a7fdaa59981232897501e04";
@@ -59,6 +60,9 @@ function buildprofile(data, parent){
   musicdiv.addEventListener('click', function(e){
     soundcontrol.src = data["stream_url"]+client_id;
     soundcontrol.autoplay = true;
+    var songtext = document.createElement('h4');
+    songtext.textContent = data["title"];
+    selectedmusic.appendChild(songtext);
   });
   var img = document.createElement('img');
   img.src = data["artwork_url"];
@@ -76,10 +80,19 @@ function buildprofile(data, parent){
   var favorite = document.createElement("input");
   favorite.value = 'Add to favorites';
   favorite.type = 'button';
-  favorite.onclick = function() { addtodb(data); };
+  favorite.addEventListener("click", function() {
+    axios.post("/favsongs", data).then(function(response){console.log(response.data)});
+     });
   favorite.classList = "fav_btn";
   musicdiv.appendChild(band);
   musicdiv.appendChild(favorite);
 }
 // 5. Create a way to listen for a click that will play the song in the audio play
+
+function playsong(stream_url){
+  console.log(stream_url+client_id);
+  soundcontrol.src = stream_url+client_id;
+  soundcontrol.autoplay = true;
+  return false;
+}
 
