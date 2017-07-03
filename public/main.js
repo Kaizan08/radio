@@ -25,9 +25,7 @@ function sendData() {
   });
   return false;
 }
-function addtodb(obj){
-  console.log(obj);
-}
+
 
 function getTracks(userId){
   var trackurl = "http://api.soundcloud.com/users/";
@@ -88,11 +86,20 @@ function buildprofile(data, parent){
   musicdiv.appendChild(favorite);
 }
 // 5. Create a way to listen for a click that will play the song in the audio play
+function getTracks(userId){
+  var trackurl = "http://api.soundcloud.com/users/";
+  trackurl += userId + '/tracks' + client_id;
+  axios.get(trackurl).then(function(data){
+    pushToPage(data);
+  });
+}
 
-function playsong(stream_url){
-  console.log(stream_url+client_id);
-  soundcontrol.src = stream_url+client_id;
-  soundcontrol.autoplay = true;
+function playsong(track){
+  axios.get("http://api.soundcloud.com/tracks/"+track+client_id).then(function(data){
+    var mp3 = data['data']['stream_url']+client_id;
+    soundcontrol.src = mp3;
+    soundcontrol.autoplay = true;
+  })
   return false;
 }
 

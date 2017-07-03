@@ -16,7 +16,7 @@
             {{#songs}}
                 <div class="music_list">
                     <span class="top_row">
-                        <p>Title: <a href="playsong({{stream_url}}); return false;">{{title}}</a></p>
+                        <p>Title: <a href="javascript:playsong({{songid}});">{{title}}</a></p>
                         <p>Genre: {{genre}}</p>
                         <p>User: {{user}}</p>
                     </span>
@@ -30,6 +30,7 @@
                 <a href="/">Return to search page</a> 
             {{/songs}}
         </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="./main.js"></script>
     </body>
 </html>

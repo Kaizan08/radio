@@ -28,8 +28,6 @@ app.get("/favorites", function(req, res){
   })
 })
 
-
-
 app.post("/favsongs", function(req, res){
   var songobj = {songid: req.body.id, 
               genre: req.body.genre,
